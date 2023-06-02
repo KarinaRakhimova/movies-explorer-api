@@ -5,7 +5,6 @@ const FORBIDDEN_ERROR_CODE = 403;
 const NOTFOUND_ERROR_CODE = 404;
 const DUPLICATE_ERROR_CODE = 409;
 const DEFAULT_ERROR_CODE = 500;
-const URL_PATTERN = /https?:\/\/[w{3}\.]?[\w\W]*\.[a-z\W]{2,3}#?/;
 const ALLOWED_CORS = [
   'http://localhost:3000',
   'http://localhost:3001',
@@ -37,7 +36,6 @@ module.exports = {
   NOTFOUND_ERROR_MESSAGE,
   DUPLICATE_ERROR_CODE,
   DUPLICATE_ERROR_MESSAGE,
-  URL_PATTERN,
   ALLOWED_CORS,
   EMPTY_FIELD_MESSAGE,
   INCORRECT_FIELD_MESSAGE,
