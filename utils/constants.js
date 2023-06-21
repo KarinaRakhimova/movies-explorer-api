@@ -10,6 +10,12 @@ const ALLOWED_CORS = [
   'http://localhost:3001',
   'https://localhost:3000',
   'https://localhost:3001',
+  'http://api.nomoreparties.co',
+  'https://api.nomoreparties.co',
+  'http://api.krr-diploma.nomoredomains.rocks',
+  'http://krr-diploma.nomoredomains.rocks',
+  'https://api.krr-diploma.nomoredomains.rocks',
+  'https://krr-diploma.nomoredomains.rocks',
 ];
 
 const UNAUTHORIZED_ERROR_MESSAGE = 'Ошибка авторизации';
