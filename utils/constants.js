@@ -20,7 +20,7 @@ const ALLOWED_CORS = [
 
 const UNAUTHORIZED_ERROR_MESSAGE = 'Ошибка авторизации';
 const FORBIDDEN_ERROR_MESSAGE = 'У вас нет доступа';
-const DUPLICATE_ERROR_MESSAGE = 'Пользователь с данным email уже зарегистрирован';
+const DUPLICATE_ERROR_MESSAGE = 'Пользователь с таким email уже существует.';
 const EMPTY_FIELD_MESSAGE = 'Поле должно быть заполнено';
 const INCORRECT_FIELD_MESSAGE = 'Поле заполнено некорректно';
 const NOTFOUND_ERROR_MESSAGE = 'Страница не найдена';
@@ -29,6 +29,7 @@ const MAXLENGTH_ERROR_MESSAGE = 'Слишком много символов';
 const SIGNIN_MESSAGE = 'Вы авторизованы';
 const SIGNOUT_MESSAGE = 'Вы вышли из учетной записи';
 const MOVIE_DELETED_MESSAGE = 'Фильм успешно удален';
+const DEFAULT_MESSAGE = 'Произошла ошибка';
 
 module.exports = {
   CREATED_CODE,
@@ -50,4 +51,5 @@ module.exports = {
   SIGNIN_MESSAGE,
   SIGNOUT_MESSAGE,
   MOVIE_DELETED_MESSAGE,
+  DEFAULT_MESSAGE,
 };

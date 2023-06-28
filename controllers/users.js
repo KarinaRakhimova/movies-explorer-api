@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/users');
 const { JWT_KEY_DEV } = require('../utils/config');
-const { CREATED_CODE, SIGNIN_MESSAGE, SIGNOUT_MESSAGE } = require('../utils/constants');
+const { CREATED_CODE, SIGNOUT_MESSAGE } = require('../utils/constants');
 // регистрация
 const signup = (req, res, next) => {
   const {
@@ -29,8 +29,7 @@ const signin = (req, res, next) => {
         httpOnly: true,
         sameSite: true,
       })
-        .send({ message: SIGNIN_MESSAGE })
-        .end();
+        .send(user);
     })
     .catch(next);
 };

@@ -1,6 +1,6 @@
 const ForbiddenError = require('../errors/forbiddenError');
 const Movie = require('../models/movies');
-const { MOVIE_DELETED_MESSAGE } = require('../utils/constants');
+const { FORBIDDEN_ERROR_MESSAGE } = require('../utils/constants');
 
 const getAllMovies = (req, res, next) => {
   Movie.find({ owner: req.user._id })
@@ -15,17 +15,16 @@ const createMovie = (req, res, next) => {
 };
 
 const deleteMovie = (req, res, next) => {
-  Movie.findById(req.params._id)
+  Movie.findOne({ movieId: req.params.movieId })
     .orFail()
     .populate('owner')
     .then((movie) => {
       const owner = movie.owner._id.toString();
       if (owner !== req.user._id) {
-        throw new ForbiddenError();
-      }
-      return movie.deleteOne({ _id: req.params._id });
+        throw new ForbiddenError(FORBIDDEN_ERROR_MESSAGE);
+      } return movie.deleteOne();
     })
-    .then(() => res.send({ message: MOVIE_DELETED_MESSAGE }))
+    .then(() => res.send({ message: 'Фильм успешно удален' }))
     .catch(next);
 };
 
