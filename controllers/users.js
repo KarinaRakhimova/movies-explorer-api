@@ -15,7 +15,14 @@ const signup = (req, res, next) => {
       password: hash,
       name,
     }))
-    .then((user) => res.status(CREATED_CODE).send(user))
+    .then((user) => {
+      const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_KEY : JWT_KEY_DEV, { expiresIn: '7d' });
+      res.cookie('token', token, {
+        maxAge: 3600000 * 24 * 7,
+        httpOnly: true,
+        sameSite: true,
+      }).status(CREATED_CODE).send(user);
+    })
     .catch(next);
 };
 // авторизация
