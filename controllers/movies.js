@@ -24,7 +24,7 @@ const deleteMovie = (req, res, next) => {
         throw new ForbiddenError(FORBIDDEN_ERROR_MESSAGE);
       } return movie.deleteOne();
     })
-    .then(() => res.send({ message: 'Фильм успешно удален' }))
+    .then((movie) => res.send(movie))
     .catch(next);
 };
 
